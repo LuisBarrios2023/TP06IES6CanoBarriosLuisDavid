@@ -2,6 +2,9 @@ package ar.edu.ies6.model;
 
 import java.sql.Date;
 
+import org.springframework.stereotype.Component;
+
+@Component
 public class Alumno {
 	private String name;
 	private String lastName;		

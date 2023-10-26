@@ -11,11 +11,20 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.servlet.ModelAndView;
 
-
+@Controller
 public class AlumnoController {
 
-
 	@GetMapping({"/index", "/", "/home", "/alumno"})
+	public ModelAndView cargarAlumno() {
+		
+		Alumno alu = new Alumno ();
+		
+		ModelAndView modelView = new ModelAndView ("index");
+		
+		modelView.addObject("alumno", alu);
+		
+		return modelView;	
+	}
 	
 	@PostMapping("/cargarAlumno")
     public ModelAndView cargarAlumno(@ModelAttribute("alumno") Alumno alumno) {
