@@ -18,6 +18,9 @@ public class AlumnoController {
 	public ModelAndView cargarAlumno() {
 		
 		Alumno alu = new Alumno ();
+			
+		alu.setFechaNac(LocalDate.of(1970, 1, 12));
+		System.out.println("Edad: "+alu.calcularEdad());
 		
 		ModelAndView modelView = new ModelAndView ("index");
 		
