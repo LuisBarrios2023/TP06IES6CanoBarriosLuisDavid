@@ -24,6 +24,7 @@
 				<th>Fecha de Nacimiento</th>
 				<th>Edad</th>
 				<th>Estado</th>
+				<th>Acciones</th>
 			</tr>
 			<tr th:each="alumno:${listado}">
 				<td th:text="${alumno.name}"></td>
@@ -35,6 +36,10 @@
 				<td th:text="${alumno.fechaNac}"></td>
 				<td th:text="${alumno.calcularEdad}"></td>
 				<td th:text="${alumno.estado}"></td>
+				<td><form method="post" th:action="@{/borrarAlumno/{dni}(dni=${alumno.dni})}">
+   					 <button type="submit">Borrar</button>
+					</form>
+				<button onclick="modificarrAlumno('{{alumno.id}}')">Modificar</button>
 			</tr>
 		</table>
 		<form>

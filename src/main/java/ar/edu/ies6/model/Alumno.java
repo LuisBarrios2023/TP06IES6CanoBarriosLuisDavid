@@ -15,6 +15,7 @@ public class Alumno {
 	private String dni;
 	private Boolean estado;
 	
+	
 	public Alumno() {
 		// TODO Auto-generated constructor stub
 	}
@@ -92,6 +93,5 @@ public class Alumno {
 		
 		return edad;
 	}
-	
 	
 }

@@ -8,8 +8,10 @@ import java.time.LocalDate;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.servlet.ModelAndView;
+import org.springframework.web.bind.annotation.RequestParam;
 
 @Controller
 public class AlumnoController {
@@ -39,5 +41,15 @@ public class AlumnoController {
 		modelView.addObject("listado", ListadoAlumnos.getListado());
 		
 		return modelView;	
+	}
+	@PostMapping("/borrarAlumno/{dni}")
+	public ModelAndView eliminarAlumno(@PathVariable("dni") String dni) {
+	    
+	    ListadoAlumnos.getListado().removeIf(alumno -> alumno.getDni().equals(dni));
+
+	    ModelAndView modelView = new ModelAndView("listadoAlumnos");
+	    modelView.addObject("listado", ListadoAlumnos.getListado());
+
+	    return modelView;
 	}
 }
